@@ -1,0 +1,5 @@
+name: 'User Points'
+type: module
+description: 'User points module provides api functions for storing and removing points.'
+core: 8.x
+package: 'Custom'
