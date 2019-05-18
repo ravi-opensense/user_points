@@ -156,7 +156,7 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default');
 
-    $fields['points_change'] = BaseFieldDefinition::create('integer')
+    $fields['point_change'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('Point Change'))
       ->setDescription(t('The Change Points of the User.'))
       ->setDisplayOptions('view', [

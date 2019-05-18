@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\user_points\Services;
 use \Drupal\user_points\Entity\UserPoints;
+use \Drupal\user_points\Entity\UserPointsTransactions;
 
 /**
  * Class UserPoints.
@@ -24,6 +25,9 @@ class UserPointsService {
       }
       $entity = UserPoints::load($user_id)->set("points", $new_point)->save();
       if($entity) {
+        UserPointsTransactions::create(['uid'=>$user_id, 'point_change'=>$points,
+          'point_balance'=>$new_point, 'point_operation'=>'credit'])->save();
+
         $message = $points.' Points credited successfully.';
       }
       else {
@@ -46,6 +50,8 @@ class UserPointsService {
     if(!empty($user_points_details)) {
       $entity = UserPoints::load($user_id)->set("points", $points)->save();
       if($entity) {
+        UserPointsTransactions::create(['uid'=>$user_id, 'point_change'=>$points,
+          'point_balance'=>$points, 'point_operation'=>'set'])->save();
         $message = $points.' Points set successfully for user.';
       }
       else {
@@ -90,6 +96,8 @@ class UserPointsService {
         $new_point = $old_point - $points;
         $entity = UserPoints::load($user_id)->set("points", $new_point)->save();
         if($entity) {
+          UserPointsTransactions::create(['uid'=>$user_id, 'point_change'=>$points,
+          'point_balance'=>$new_point, 'point_operation'=>'debit'])->save();
           $message = $points.' Points debited successfully.';
         }
         else {
