@@ -53,26 +53,23 @@ interface UserPointsTransactionsInterface extends ContentEntityInterface, Entity
    */
   public function setPointChange($points);
 
+  /**
+   * Gets the User points transactions operation.
+   *
+   * @return int
+   *   operation of the User points transactions.
+   */
+  public function getOperation();
 
   /**
-   * Returns the User points published status indicator.
+   * Sets the User points transactions operation.
    *
-   * Unpublished User points are only visible to restricted users.
+   * @param int $timestamp
+   *   The User points transactions operation.
    *
-   * @return bool
-   *   TRUE if the User points is published.
+   * @return \Drupal\user_points\Entity\UserPointsTransactionsInterface
+   *   The called User points transactions entity.
    */
-  public function isPublished();
-
-  /**
-   * Sets the published status of a User points.
-   *
-   * @param bool $published
-   *   TRUE to set this User points to published, FALSE to set it to unpublished.
-   *
-   * @return \Drupal\user_points\Entity\UserPointsInterface
-   *   The called User points entity.
-   */
-  public function setPublished($published);
+  public function setOperation($operation);
 
 }

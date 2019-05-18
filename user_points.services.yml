@@ -1,4 +1,4 @@
 services:
   user_points.point_service:
-    class: Drupal\user_points\Services\UserPoints
+    class: Drupal\user_points\Services\UserPointsService
     arguments: []

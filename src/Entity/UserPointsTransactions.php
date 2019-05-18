@@ -39,6 +39,7 @@ use Drupal\user\UserInterface;
  *     "id" = "id",
  *     "point_balance" = "point_balance",
        "point_change" = "point_change", 
+       "operation" = "operation",
  *     "uid" = "uid",
  *     "uuid" = "uuid",
  *     "langcode" = "langcode",
@@ -82,10 +83,10 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
     $this->set('point_balance', $points);
     return $this;
   }
+
   /**
    * {@inheritdoc}
    */
-
   public function getPointBalance() {
     return $this->get('point_balance')->value;
   }
@@ -95,6 +96,21 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
    */
   public function setPointBalance($point) {
     $this->set('point_balance', $points);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getOperation() {
+    return $this->get('point_operation')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setOperation($operation) {
+    $this->set('point_operation', $operation);
     return $this;
   }
 
@@ -129,21 +145,6 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
   }
 
   /**
-  * {@inheritdoc}
-  */
-  public function isPublished() {
-    return (bool) $this->getEntityKey('status');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setPublished($published) {
-    $this->set('status', $published ? TRUE : FALSE);
-    return $this;
-  }
-
-  /**
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
@@ -161,7 +162,6 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'integer',
-        'weight' => -4,
       ]);  
 
       $fields['point_balance'] = BaseFieldDefinition::create('integer')
@@ -171,7 +171,15 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'integer',
-        'weight' => -4,
+      ]);
+
+      $fields['point_operation'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Operation'))
+      ->setDescription(t('The Balance Points of the User.'))
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'string',
       ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
