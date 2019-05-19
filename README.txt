@@ -42,19 +42,19 @@ HOW TO USE
 
     1. To set points for user we just need to call the service 'user_points.point_service'
        and call a method "setPoints($uid,$points)".
-       ex- \Drupal::Service('user_points.point_service')->setPoints($uid,$points);
+       ex- \Drupal::Service('user_points.point_service')->setPoints(1,100);
 
     2. To get points for user we just need to call the service 'user_points.point_service'
        and call a method "getPoints($uid)".
-       ex- \Drupal::Service('user_points.point_service')->getPoints($uid);
+       ex- \Drupal::Service('user_points.point_service')->getPoints(1);
 
     3. To add points for user we just need to call the service 'user_points.point_service'
        and call a method "addPoints($id,$points)".
-       ex- \Drupal::Service('user_points.point_service')->addPoints($uid,$points);
+       ex- \Drupal::Service('user_points.point_service')->addPoints(1,100);
 
     4. To delete points for user we just need to call the service 'user_points.point_service'
        and call a method "deletePoints($uid,$points)".
-       ex- \Drupal::Service('user_points.point_service')->deletePoints($uid,$points);
+       ex- \Drupal::Service('user_points.point_service')->deletePoints(1,100);
 
 
 MAINTAINERS
