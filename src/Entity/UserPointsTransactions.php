@@ -38,12 +38,12 @@ use Drupal\user\UserInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "point_balance" = "point_balance",
-       "point_change" = "point_change", 
-       "operation" = "operation",
+ * "point_change" = "point_change",
+ * "operation" = "operation",
  *     "uid" = "uid",
  *     "uuid" = "uuid",
  *     "langcode" = "langcode",
- *     "status" = "status", 
+ *     "status" = "status",
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/user_points_transactions/{user_points_transactions}",
@@ -162,9 +162,9 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'integer',
-      ]);  
+      ]);
 
-      $fields['point_balance'] = BaseFieldDefinition::create('integer')
+    $fields['point_balance'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('Point Balance'))
       ->setDescription(t('The Balance Points of the User.'))
       ->setDefaultValue('')
@@ -173,7 +173,7 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
         'type' => 'integer',
       ]);
 
-      $fields['point_operation'] = BaseFieldDefinition::create('string')
+    $fields['point_operation'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Operation'))
       ->setDescription(t('The Balance Points of the User.'))
       ->setDefaultValue('')
@@ -184,7 +184,7 @@ class UserPointsTransactions extends ContentEntityBase implements UserPointsTran
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the entity was last edited.'));  
+      ->setDescription(t('The time that the entity was last edited.'));
 
     return $fields;
   }

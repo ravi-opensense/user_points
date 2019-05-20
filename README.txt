@@ -61,6 +61,7 @@ MAINTAINERS
 -----------
 
  * Gaurav Kapoor (gaurav.kapoor) - https://www.drupal.org/u/gauravkapoor
+ * Ravi Shankar (ravi.shankar) - https://www.drupal.org/u/ravishankar
 
 Supporting organizations:
 

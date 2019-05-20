@@ -117,8 +117,8 @@ class UserPoints extends ContentEntityBase implements UserPointsInterface {
    */
 
   /**
-  * {@inheritdoc}
-  */
+   * {@inheritdoc}
+   */
   public function isPublished() {
     return (bool) $this->getEntityKey('status');
   }
@@ -130,6 +130,7 @@ class UserPoints extends ContentEntityBase implements UserPointsInterface {
     $this->set('status', $published ? TRUE : FALSE);
     return $this;
   }
+
   /**
    * {@inheritdoc}
    */
@@ -158,7 +159,7 @@ class UserPoints extends ContentEntityBase implements UserPointsInterface {
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the entity was last edited.'));  
+      ->setDescription(t('The time that the entity was last edited.'));
 
     return $fields;
   }
